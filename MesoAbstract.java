@@ -10,4 +10,6 @@ public abstract class MesoAbstract
 	//TODO: Create an abstract method letterAverage with return type char
 	abstract char letterAverage();
 	
+	//Hi bro
+	
 }
