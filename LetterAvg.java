@@ -29,7 +29,7 @@ public class LetterAvg {
 		return sum;
 	}
 	
-	public int numberOfStationWithLetterAvg1() {
+	public ArrayList<String> numberOfStationWithLetterAvg1() {
 		//find a way to get docs in the method/class
 		docs = file.getDocs();
 		int sum = 0;
