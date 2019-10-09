@@ -32,11 +32,12 @@ public class LetterAvg {
 	
 	public String toString() {
 		String string1 = "\nThey are:";
+		String string2 = "";
 		for (int i = 0; i < stationId.size(); ++i) {
-			string1 = string1.concat("\n" + stationId.get(i)); 
+			string2 += "\n" + stationId.get(i);
 			
 		}
-		return string1;
+		return string1 + string2;
 	}
 }
 
