@@ -29,12 +29,28 @@ public class LetterAvg {
 		return sum;
 	}
 	
+	public int numberOfStationWithLetterAvg() {
+		//find a way to get docs in the method/class
+		docs = file.getDocs();
+		int sum = 0;
+		
+		for (int i = 0; i < docs.size(); ++i) {
+			String element =  docs.get(i);
+
+			if (character == element.charAt(0)) {
+				stationId.add(docs.get(i));
+				sum++;
+
+			}
+		}			
+		return sum;
+	}
 	
 	public String toString() {
 		String string1 = "\nThey are:";
 		String string2 = "";
 		for (int i = 0; i < stationId.size(); ++i) {
-			string2 += "\n" + stationId.get(i);
+			string2 = string2.concat("\n" + stationId.get(i));
 			
 		}
 		return string1 + string2;
