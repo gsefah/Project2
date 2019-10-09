@@ -12,7 +12,6 @@ public class LetterAvg {
 	}
 
 
-
 	public int numberOfStationWithLetterAvg() {
 		//find a way to get docs in the method/class
 		docs = file.getDocs();
