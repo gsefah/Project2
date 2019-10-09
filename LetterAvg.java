@@ -47,6 +47,7 @@ public class LetterAvg {
 	}
 	
 	public String toString() {
+		ArrayList <String> stations = numberOfStationWithLetterAvg1();
 		String string1 = "\nThey are:";
 		String string2 = "";
 		for (int i = 0; i < stationId.size(); ++i) {
