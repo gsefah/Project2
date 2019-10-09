@@ -3,10 +3,9 @@ import java.util.ArrayList;
 public class LetterAvg {
 	
 	PosAvg file = new PosAvg();
-	MesoInherit letter = new MesoInherit();
-	char character;
-	ArrayList<String> stationId = new ArrayList<String>();
-	ArrayList<String> docs;
+	public char character;
+	public ArrayList<String> stationId = new ArrayList<String>();
+	public ArrayList<String> docs;
 
 	public LetterAvg(char character) {
 		this.character = character;
@@ -17,32 +16,30 @@ public class LetterAvg {
 	public int numberOfStationWithLetterAvg() {
 		//find a way to get docs in the method/class
 		docs = file.getDocs();
-		character = (char) letter.getNum();
 		int sum = 0;
-
+		
 		for (int i = 0; i < docs.size(); ++i) {
 			String element =  docs.get(i);
-			System.out.println(element);
 
 			if (character == element.charAt(0)) {
 				stationId.add(docs.get(i));
 				sum++;
+
 			}
-		}
-		System.out.println(sum);
-			
+		}			
 		return sum;
 	}
 	
+	
 	public String toString() {
-		String string1 = "They are:\n";
-		String string2 = "";
+		String string1 = "\nThey are:";
+		
 		
 		for (int i = 0; i < stationId.size(); ++i) {
-			string2 = string2 + stationId.get(i) + "\n";
+			string1 += "\n" + stationId.get(i);
 		}
 		
-		return string1 + string2;
+		return string1;
 	}
 }
 
