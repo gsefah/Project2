@@ -1,31 +1,33 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class PosAvg {
 
-	public int capacity = 10;
-	public String[] docs = new String[capacity];
-	public int length = 0;
-	String strg = "";
-	
-	
+	public String strg = "";
+	public ArrayList<String> docs = new ArrayList<String>();
+
+
 
 	public PosAvg(String stID) {
 		strg = stID;
+		
+		readFile();
 	}
-	public String[] getDocs() {
+
+	public PosAvg() {
+	}
+	
+	public ArrayList<String> getDocs() {
 		return docs;
 	}
 
-	
 	public String getStrg() {
 		return strg;
 	}
 
 	public void readFile() {
-		// Attempt to read a txt file, catch an error if something goes wrong:
 		try
 		{
 			String strg;
@@ -42,20 +44,14 @@ public class PosAvg {
 
 			while (strg != null)
 			{
-				//Expand the array when the size gets small
-				if( length == capacity)
-				{
-					expandDoc();
-				}
 
 				//Spilt the line to an array trimming the tabs and spaces
 				String [] splitters = strg.trim().split("\\s+");
 
 				//Putting the station ID in another array, docs
-				docs[length] = splitters[0];
+				docs.add(splitters[0]);
 
 				//Increasing the current size of the array after every input
-				length++;
 				strg = br.readLine();
 			}
 
@@ -67,49 +63,30 @@ public class PosAvg {
 			//Help to notice if there is an error in the reading
 			System.out.println("Error reading from file!\n");
 			e.printStackTrace();
-		}
+		}	
 	}
 
-	public void expandDoc() {
-
-		//Doubling the size of the array
-		int newCapacity = capacity * 2;
-		String[] temp = new String[newCapacity];
-
-		for(int i = 0; i < docs.length; i++)
-		{
-			//Copying the station ID to the new array with the bigger size
-			temp[i] = docs[i];
-		}
-
-		// Replacing all the member variable with its new updates
-		docs = temp;
-		capacity  = newCapacity;
-	}
-	
 	
 	public int indexOfStation() {
-		int sum = 0;
-		
-		for (int i = 0; i < docs.length; ++i) {
-			 if (!(docs[i].equals(strg))) {
-				 sum++;
-			 }
-		}
-		return sum;
+		int value = docs.indexOf(strg)+ 1;
+
+		return value;
 	}
 	
-	
-	public void averageStations() {
-		int avgNum = indexOfStation();
-		
-		for (int i = 0; i < docs.length; ++i) {
-			System.out.println("This index is average of " + docs[avgNum - 1] + " and " + docs[avgNum + 1] + ", " + docs[avgNum - 2] + " and " + docs[avgNum + 1] + ", and so on.");
-			System.out.println("\n");
-		}
+
+	public String toString() {
+		int indexOfStation = indexOfStation() - 1;
+		System.out.println(indexOfStation());
+		String lowerStationid1 = docs.get(indexOfStation - 1);
+		String upperStationid1 = docs.get(indexOfStation + 1 );
+		String lowerStationid2 = docs.get(indexOfStation - 2);
+		String upperStationid2 = docs.get(indexOfStation + 2);
+
+
+		return String.format("This index is average of %s  and %s ,  %s  and %s , and so on.", lowerStationid1,upperStationid1 , lowerStationid2, upperStationid2);
 	}
-
-
 }
+
+
 
 

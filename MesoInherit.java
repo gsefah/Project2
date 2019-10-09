@@ -1,9 +1,17 @@
 
-public class MesoInherit {
-	int ascii;
-	
+public class MesoInherit extends MesoAbstract{
+	double ascii;
 	MesoStation strg;
+	int num = 0;
 	
+	
+	public int getNum() {
+		return num;
+	}
+
+	public MesoInherit() {
+	}
+
 	public MesoInherit(MesoStation strg) {
 		this.strg = strg;
 	}
@@ -16,34 +24,38 @@ public class MesoInherit {
 		String strg1 = strg.getStID();
 
 		int capacity = 4;
-		int[] calAverage = new int[3];
-		int sum = 0;
+		int[] calAverage = new int[capacity];
+		double sum = 0;
 
 		for (int i = 0; i < capacity; ++i) {
-			ascii = (int) strg1.charAt(i);
+			ascii = (double) strg1.charAt(i);
 			sum = sum + ascii;
 		}
 		double average = sum /4;
 		int pseudoaverage = (int) average;
 		double pseudoaverage1 = (double) pseudoaverage;
-
-		calAverage[0] = (int) Math.ceil(average); 
-		calAverage[1] = (int) Math.floor(average); 
-
+		double ceiling = Math.ceil(average);
+		double floor = 	Math.floor(average);
+		calAverage[0] = (int) ceiling; 
+		calAverage[1] = (int) floor; 
+		
 		if ((average - pseudoaverage1) < 0.5) {
-			calAverage[2] = (int) Math.floor(average); 
+			double midpoint = Math.floor(average);
+			calAverage[2] = (int) midpoint; 
 		}
 		
 
 		else {
-			calAverage[3] = (int) Math.ceil(average); 
+			double midpoint = Math.ceil(average);
+			calAverage[2] = (int) midpoint; 
 		}
-		return calAverage;
+	return calAverage;
 	}
 
 
 	public char letterAverage() {
-			return (char) ascii;
+		num = calAverage()[2];
+			return (char) num;
 	}
 }
 
