@@ -17,6 +17,7 @@ public class PosAvg {
 	}
 
 	public PosAvg() {
+		readFile();
 	}
 	
 	public ArrayList<String> getDocs() {
@@ -68,7 +69,7 @@ public class PosAvg {
 
 	
 	public int indexOfStation() {
-		int value = docs.indexOf(strg)+ 1;
+		int value = docs.indexOf(strg) + 1;
 
 		return value;
 	}
@@ -76,14 +77,13 @@ public class PosAvg {
 
 	public String toString() {
 		int indexOfStation = indexOfStation() - 1;
-		System.out.println(indexOfStation());
 		String lowerStationid1 = docs.get(indexOfStation - 1);
 		String upperStationid1 = docs.get(indexOfStation + 1 );
 		String lowerStationid2 = docs.get(indexOfStation - 2);
 		String upperStationid2 = docs.get(indexOfStation + 2);
 
 
-		return String.format("This index is average of %s  and %s ,  %s  and %s , and so on.", lowerStationid1,upperStationid1 , lowerStationid2, upperStationid2);
+		return String.format("This index is average of %s and %s, %s and %s, and so on.", lowerStationid1,upperStationid1 , lowerStationid2, upperStationid2);
 	}
 }
 
