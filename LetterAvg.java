@@ -49,12 +49,11 @@ public class LetterAvg {
 	public String toString() {
 		ArrayList <String> stations = numberOfStationWithLetterAvg1();
 		String string1 = "\nThey are:";
-		String string2 = "";
-		for (int i = 0; i < stationId.size(); ++i) {
-			string2 = string2.concat("\n" + stationId.get(i));
+		for (int i = 0; i < stations.size(); ++i) {
+			string1 += "\n" + stations.get(i);
 			
 		}
-		return string1 + string2;
+		return string1;
 	}
 }
 
