@@ -29,7 +29,7 @@ public class LetterAvg {
 		return sum;
 	}
 	
-	public int numberOfStationWithLetterAvg() {
+	public int numberOfStationWithLetterAvg1() {
 		//find a way to get docs in the method/class
 		docs = file.getDocs();
 		int sum = 0;
@@ -43,7 +43,7 @@ public class LetterAvg {
 
 			}
 		}			
-		return sum;
+		return stationId;
 	}
 	
 	public String toString() {
